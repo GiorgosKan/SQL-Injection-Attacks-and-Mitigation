@@ -13,6 +13,6 @@ In order to properly format SQL Injection payloads for use inside URLs, the webs
 
 This environment simulates a realistic attacker workflow where web traffic is intercepted, modified, and resent to the target application.
 
-1. Discovering and Exploiting Basic SQL Injection
+1. Discovering and Exploiting Basic SQL Injection Vulnerability
 2. Extracting Database Structure Using UNION SQL Injection
 3. Defending Against SQL Injection with Prepared Statements
