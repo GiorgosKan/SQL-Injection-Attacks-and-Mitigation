@@ -1,5 +1,5 @@
 Goal
-The goal of this exercise was to extract sensitive database information using UNION-based SQL Injection.
+The goal was to extract sensitive database information using UNION-based SQL Injection.
 
 Steps
 After confirming the vulnerability, a UNION SELECT payload was crafted.
