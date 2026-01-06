@@ -1,0 +1,73 @@
+Goal
+The goal was to mitigate the SQL Injection vulnerability by applying secure coding practices.
+
+Steps
+The vulnerable source code was located inside the DVWA SQL Injection module.
+The dynamic SQL query was identified.
+The query was replaced with a parameterized prepared statement.
+Input validation was added to ensure numeric input.
+The application was tested again using the same SQL Injection payloads.
+-----------------------------------------------------------------------
+Vulnerable Code (Before)
+// User input is retrieved directly from the request
+$id = $_REQUEST['id'];
+
+// Vulnerable SQL query
+// The user-controlled input is directly concatenated into the query
+$query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id';";
+
+// Query execution
+$result = mysqli_query($GLOBALS["___mysqli_ston"], $query);
+
+-----------------------------------------------------------------------
+Secure Code (After – MySQL Case)
+// User input retrieved from the request
+$id = $_REQUEST['id'];
+
+// Basic input validation to ensure numeric input
+if (!is_numeric($id)) {
+    die('<pre>Invalid input</pre>');
+}
+
+// Prepare the SQL statement using a placeholder
+// The placeholder (?) prevents user input from being interpreted as SQL code
+$stmt = $GLOBALS["___mysqli_ston"]->prepare(
+    "SELECT first_name, last_name FROM users WHERE user_id = ?"
+);
+
+// Bind the user input to the prepared statement
+// "i" specifies that the parameter is an integer
+$stmt->bind_param("i", $id);
+
+// Execute the prepared statement
+$stmt->execute();
+
+// Retrieve the result set
+$result = $stmt->get_result();
+
+// Fetch and display results safely
+while ($row = mysqli_fetch_assoc($result)) {
+    $first = $row["first_name"];
+    $last  = $row["last_name"];
+
+    $html .= "<pre>ID: {$id}<br />First name: {$first}<br />Surname: {$last}</pre>";
+}
+
+// Close the prepared statement
+$stmt->close();
+-----------------------------------------------------------------------------
+
+Testing the Mitigation
+
+After applying the mitigation, previously successful SQL Injection payloads were tested again using Fiddler, including:
+
+1' OR '1'='1
+
+and
+
+1' UNION SELECT table_name, null FROM information_schema.tables-- 
+
+All requests were replayed using Replay → From Composer.
+
+Result
+None of the SQL Injection payloads were successful after the mitigation. The application no longer executed injected SQL code, confirming that the vulnerability was properly fixed.
