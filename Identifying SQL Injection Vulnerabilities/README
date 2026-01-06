@@ -1,5 +1,5 @@
 Goal
-The goal of this exercise was to identify a basic SQL Injection vulnerability in DVWA and confirm that user input is directly injected into an SQL query.
+The goal was to identify a basic SQL Injection vulnerability in DVWA and confirm that user input is directly injected into an SQL query.
 
 Steps
 The DVWA security level was set to Low.
