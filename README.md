@@ -12,3 +12,7 @@ Fiddler was used as the HTTP interception and request manipulation tool. It allo
 In order to properly format SQL Injection payloads for use inside URLs, the website urlencoder.org was used to encode special characters such as quotes, spaces, and SQL operators before sending the requests.
 
 This environment simulates a realistic attacker workflow where web traffic is intercepted, modified, and resent to the target application.
+
+1. Discovering and Exploiting Basic SQL Injection
+2. Extracting Database Metadata via UNION SQL Injection
+3. Defending Against SQL Injection with Prepared Statements
