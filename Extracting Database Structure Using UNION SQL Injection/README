@@ -1,0 +1,28 @@
+Goal
+The goal of this exercise was to extract sensitive database information using UNION-based SQL Injection.
+
+Steps
+After confirming the vulnerability, a UNION SELECT payload was crafted.
+The payload was designed to match the number of columns in the original query.
+The payload was encoded using https://www.urlencoder.org/
+.
+
+The request was intercepted and modified using Fiddler.
+The modified request was executed via Replay → From Composer.
+
+Payload Used (plain text)
+1' UNION SELECT table_name, null 
+FROM information_schema.tables 
+WHERE table_schema=database()-- 
+
+
+Payload Used (URL encoded)
+1%27%20UNION%20SELECT%20table_name%2C%20null%20FROM%20information_schema.tables%20WHERE%20table_schema%3Ddatabase%28%29--+
+
+
+Result
+The response displayed database table names, including sensitive tables such as users.
+What This Demonstrates
+UNION-based SQL Injection allows database enumeration.
+Attackers can access metadata through information_schema.
+SQL Injection can lead to full database disclosure.
