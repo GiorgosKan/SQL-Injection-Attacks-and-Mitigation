@@ -16,6 +16,9 @@ This environment simulates a realistic attacker workflow where web traffic is in
 2. Extracting Database Structure Using UNION SQL Injection
 3. Defending Against SQL Injection with Prepared Statements
 
+**This project demonstrates the concepts and skills I gained through hands-on practice in web application security.
+All techniques shown are intended for ethical and educational use only.**
+
 -------------------------------------------------------------------------
 ## References & Inspiration
 The methodology and high-level steps used in this project were inspired by publicly available GitHub resources related to web penetration testing, particularly the following repository:
