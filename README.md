@@ -3,7 +3,6 @@ how attackers can manipulate HTTP requests to extract sensitive data, and how pr
 
 The project is divided into three exercises, starting from basic vulnerability identification, moving to data extraction, and finally implementing secure coding practices to mitigate the issue.
 
-
 Tools and Environment
 For this project, DVWA was hosted locally using XAMPP on a Windows operating system. Apache and MySQL services were enabled through the XAMPP control panel, allowing DVWA to run on a local web server. 
 The application was accessed through the browser at http://localhost/DVWA/, and the SQL Injection module was located at http://localhost/DVWA/vulnerabilities/sqli/.
@@ -16,3 +15,8 @@ This environment simulates a realistic attacker workflow where web traffic is in
 1. Discovering and Exploiting Basic SQL Injection Vulnerability
 2. Extracting Database Structure Using UNION SQL Injection
 3. Defending Against SQL Injection with Prepared Statements
+
+-------------------------------------------------------------------------
+
+The methodology and high-level steps used in this project were inspired by publicly available GitHub resources related to web penetration testing, particularly the following repository:
+https://github.com/0xrajneesh/Web-Pentesting-Projects-For-Beginners/blob/main/Project-1-Identifying-and-Exploiting-SQL-Injection-Vulnerabilities.md
