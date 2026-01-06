@@ -5,7 +5,7 @@ Steps
 After confirming the vulnerability, a UNION SELECT payload was crafted.
 The payload was designed to match the number of columns in the original query.
 The payload was encoded using https://www.urlencoder.org/
-.
+
 
 The request was intercepted and modified using Fiddler.
 The modified request was executed via Replay → From Composer.
